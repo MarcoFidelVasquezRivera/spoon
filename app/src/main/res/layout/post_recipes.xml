@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/recipe_image"
+            android:id="@+id/recipe_image_post"
             android:layout_width="85dp"
             android:layout_height="85dp"
             android:layout_margin="10dp"
@@ -44,7 +44,7 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/recipe_image"
+            app:layout_constraintStart_toEndOf="@+id/recipe_image_post"
             app:layout_constraintTop_toBottomOf="@+id/chef_name_txt" />
 
         <TextView
@@ -61,7 +61,7 @@
             android:typeface="normal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/recipe_image"
+            app:layout_constraintStart_toEndOf="@+id/recipe_image_post"
             app:layout_constraintStart_toStartOf="@+id/recipe_score_txt"
             app:layout_constraintTop_toTopOf="parent" />
 

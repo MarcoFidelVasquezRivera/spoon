@@ -137,7 +137,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipes_type_list_recyclerview"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="30dp"
+            android:paddingStart="40dp"
             android:scrollbars="horizontal"
             android:verticalScrollbarPosition="left"
             app:layout_constraintBottom_toBottomOf="parent"
