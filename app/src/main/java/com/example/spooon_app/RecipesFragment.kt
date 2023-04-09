@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.spooon_app.databinding.RecipesFragmentBinding
+import com.example.spooon_app.databinding.RecipesListFragmentBinding
 
 class RecipesFragment :Fragment(){
     override fun onCreateView(
@@ -13,7 +13,7 @@ class RecipesFragment :Fragment(){
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding:RecipesFragmentBinding = RecipesFragmentBinding.inflate(inflater, container, false)
+        val binding:RecipesListFragmentBinding = RecipesListFragmentBinding.inflate(inflater, container, false)
 
         return binding.root
     }
