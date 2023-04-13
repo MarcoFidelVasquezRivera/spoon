@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spooon_app.adapter.RecipeAdapter
+import com.example.spooon_app.adapter.TagAdapter
 import com.example.spooon_app.databinding.MyRecipesFragmentBinding
 
 class MyRecipesFragment : Fragment() {
     private lateinit var adapter:RecipeAdapter
+    private lateinit var tagAdapter:TagAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -22,6 +24,11 @@ class MyRecipesFragment : Fragment() {
         binding.myrecipeRV.adapter = adapter
         binding.myrecipeRV.layoutManager = LinearLayoutManager(activity)
         binding.myrecipeRV.setHasFixedSize(true)
+
+        tagAdapter = TagAdapter()
+        binding.recipesTypeListRecyclerview.adapter = tagAdapter
+        binding.recipesTypeListRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+        binding.recipesTypeListRecyclerview.setHasFixedSize(true)
 
         return binding.root
     }
