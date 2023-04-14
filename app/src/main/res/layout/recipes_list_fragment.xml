@@ -20,8 +20,7 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginStart="15dp"
-            android:layout_marginEnd="356dp"
-            android:background="@drawable/menu"
+            android:background="@drawable/menu_48px"
             android:insetTop="0dp"
             android:insetBottom="0dp"
             android:padding="0dp"
@@ -36,28 +35,7 @@
             app:iconPadding="0dp"
             app:iconTint="#00FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/notification_btn"
-            android:layout_width="40dp"
-            android:layout_height="35dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/notifications"
-            android:padding="0dp"
-            android:paddingHorizontal="0dp"
-            android:paddingVertical="0dp"
-            android:paddingStart="0dp"
-            android:paddingLeft="0dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="0dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="0dp"
-            app:iconPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,11 +44,11 @@
             android:layout_height="40dp"
             android:layout_marginStart="15dp"
             android:layout_marginTop="13dp"
-            android:layout_marginEnd="15dp"
+            android:layout_marginEnd="65dp"
             android:layout_marginBottom="12dp"
             android:background="@drawable/backgraund_search"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/notification_btn"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/menu_btn"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -98,10 +76,12 @@
 
             <EditText
                 android:id="@+id/search_recipes_edittxt"
+                style="@style/Widget.Material3.AutoCompleteTextView.FilledBox"
                 android:layout_width="0dp"
                 android:layout_height="35dp"
                 android:drawablePadding="0dp"
                 android:ems="10"
+                android:hint="Buscar recetas"
                 android:inputType="textPersonName"
                 android:padding="0dp"
                 android:paddingHorizontal="0dp"
@@ -112,7 +92,6 @@
                 android:paddingEnd="0dp"
                 android:paddingRight="0dp"
                 android:paddingBottom="0dp"
-                android:text="Buscar recetas"
                 android:textSize="16sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/search_btn"
@@ -125,7 +104,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="409dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
