@@ -30,6 +30,7 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         holder.autor.text = recipe.creator
         holder.rating.text = recipe.rating.toString()
         holder.dificulty.text = recipe.dificulty
+        //to do for diego
     }
 
     override fun getItemCount(): Int {
