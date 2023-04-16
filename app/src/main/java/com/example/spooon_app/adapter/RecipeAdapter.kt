@@ -4,9 +4,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.spooon_app.R
+import com.example.spooon_app.RecipeViewActivity
+import com.example.spooon_app.RecipesFragment
 import com.example.spooon_app.model.Recipe
 import com.example.spooon_app.viewholder.RecipeViewHolder
 
@@ -32,11 +34,12 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         holder.autor.text = recipe.creator
         holder.rating.text = recipe.rating.toString()
         holder.dificulty.text = recipe.dificulty
-        //to do for dieg
-        val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
+        //to do for diego
+
         holder.recipeBtn.setOnClickListener {
-            val intent = Intent(this, CreateRecipeStepsActivity::class.java)
-                    launcher.launch(intent)
+            holder.itemView.context.startActivity(
+                Intent(holder.itemView.context,RecipeViewActivity::class.java)
+            )
         }
     }
 
