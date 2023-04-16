@@ -13,6 +13,10 @@
         tools:targetApi="31">
         <activity
             android:name=".RecipeViewActivity"
+            android:exported="false"
+            />
+        <activity
+            android:name=".CreateRecipeStepsActivity"
             android:exported="false" />
         <activity
             android:name=".CreateRecipeActivity"
