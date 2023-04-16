@@ -16,4 +16,6 @@ class RecipeViewHolder(root: View) : ViewHolder(root){
     val rating = binding.recipeScoreTV
     //dificultad
     val dificulty = binding.recipeDifficultyTV
+
+    val recipeBtn = binding.recipe
 }

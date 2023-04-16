@@ -1,8 +1,10 @@
 package com.example.spooon_app.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.example.spooon_app.R
 import com.example.spooon_app.model.Recipe
@@ -30,7 +32,12 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         holder.autor.text = recipe.creator
         holder.rating.text = recipe.rating.toString()
         holder.dificulty.text = recipe.dificulty
-        //to do for diego
+        //to do for dieg
+        val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
+        holder.recipeBtn.setOnClickListener {
+            val intent = Intent(this, CreateRecipeStepsActivity::class.java)
+                    launcher.launch(intent)
+        }
     }
 
     override fun getItemCount(): Int {
