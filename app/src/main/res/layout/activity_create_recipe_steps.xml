@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout9"
+            android:id="@+id/recipeDoneBtn"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:background="@drawable/done_48px"

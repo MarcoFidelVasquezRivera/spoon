@@ -17,6 +17,11 @@ class RecipeViewActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        binding.backBtn.setOnClickListener {
+            setResult(RESULT_CANCELED)
+            finish()
+        }
+
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         binding.creatorprofile.setOnClickListener {
             val intent = Intent(this, ProfileCreatorActivity::class.java)

@@ -12,5 +12,10 @@ class ProfileCreatorActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        binding.goBackBtn.setOnClickListener {
+            setResult(RESULT_CANCELED)
+            finish()
+        }
     }
 }

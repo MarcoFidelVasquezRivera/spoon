@@ -331,17 +331,16 @@
                 android:text="Chef name"
                 android:textColor="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/recipe_view_chef_picture"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.509"
-                tools:layout_editor_absoluteX="207dp" />
+                app:layout_constraintVertical_bias="0.509" />
 
             <ImageView
                 android:id="@+id/recipe_view_chef_picture"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_marginEnd="100dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/recipe_view_chef_name_txt"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ic_launcher_background" />
