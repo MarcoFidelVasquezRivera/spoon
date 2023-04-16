@@ -12,9 +12,11 @@
         android:theme="@style/Theme.Spooonapp"
         tools:targetApi="31">
         <activity
+            android:name=".ProfileCreatorActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecipeViewActivity"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".CreateRecipeStepsActivity"
             android:exported="false" />

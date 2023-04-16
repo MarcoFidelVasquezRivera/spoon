@@ -41,33 +41,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/recipe_view_notification_btn"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="302dp"
-            android:layout_marginEnd="15dp"
-            android:background="@drawable/notifications"
-            android:drawablePadding="0dp"
-            android:insetLeft="0dp"
-            android:insetTop="0dp"
-            android:insetRight="0dp"
-            android:insetBottom="0dp"
-            android:padding="0dp"
-            android:paddingHorizontal="0dp"
-            android:paddingVertical="0dp"
-            android:paddingStart="0dp"
-            android:paddingLeft="0dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="0dp"
-            android:paddingRight="0dp"
-            android:paddingBottom="0dp"
-            app:iconPadding="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/back_btn"
-            app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
@@ -188,21 +161,8 @@
         android:layout_marginBottom="1dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
-
-        <ImageView
-            android:id="@+id/recipe_view_chef_picture"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="314dp"
-            android:layout_marginBottom="15dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView11"
-            app:srcCompat="@drawable/ic_launcher_background" />
 
         <TextView
             android:id="@+id/textView11"
@@ -330,17 +290,6 @@
             app:layout_constraintStart_toEndOf="@+id/star_score_2_btn"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/recipe_view_chef_name_txt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="35dp"
-            android:text="Chef name"
-            android:textColor="#000000"
-            app:layout_constraintBottom_toBottomOf="@+id/recipe_view_chef_picture"
-            app:layout_constraintStart_toEndOf="@+id/recipe_view_chef_picture"
-            app:layout_constraintTop_toTopOf="@+id/recipe_view_chef_picture" />
-
         <Button
             android:id="@+id/recipe_view_comment_btn"
             android:layout_width="70dp"
@@ -366,6 +315,39 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/creatorprofile"
+            android:layout_width="280dp"
+            android:layout_height="70dp"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/recipe_view_chef_picture">
+
+            <TextView
+                android:id="@+id/recipe_view_chef_name_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chef name"
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.509"
+                tools:layout_editor_absoluteX="207dp" />
+
+            <ImageView
+                android:id="@+id/recipe_view_chef_picture"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="100dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/recipe_view_chef_name_txt"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/ic_launcher_background" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
