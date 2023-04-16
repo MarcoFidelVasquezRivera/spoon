@@ -24,10 +24,8 @@ class CreateRecipeActivity : AppCompatActivity() {
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         binding.createRecipeBtn.setOnClickListener {
-            binding.createRecipeBtn.setOnClickListener {
-                val intent = Intent(this, CreateRecipeStepsActivity::class.java)
-                launcher.launch(intent)
-            }
+            val intent = Intent(this, CreateRecipeStepsActivity::class.java)
+            launcher.launch(intent)
         }
 
     }
