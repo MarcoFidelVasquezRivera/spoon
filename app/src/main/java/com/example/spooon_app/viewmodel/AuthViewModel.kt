@@ -41,6 +41,23 @@ class AuthViewModel: ViewModel() {
 
     }
 
+    fun login(email: String, pass: String) {
+        status.value = AuthState.LOADING
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                Firebase.auth.signInWithEmailAndPassword(
+                    email,
+                    pass,
+                ).await()
+                withContext(Dispatchers.Main) { status.value = AuthState.AUTH }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Log.d(">>>", e.message.toString())
+                withContext(Dispatchers.Main) { status.value = AuthState.NO_AUTH }
+            }
+        }
+    }
+
 }
 
 object AuthState{

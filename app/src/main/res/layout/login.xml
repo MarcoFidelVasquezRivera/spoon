@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
         android:layout_marginTop="312dp"
-        android:text="Usuario:"
+        android:text="Email:"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +53,10 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/userET" />
+        app:layout_constraintTop_toBottomOf="@+id/loginemailET" />
 
     <EditText
-        android:id="@+id/userET"
+        android:id="@+id/loginemailET"
         android:layout_width="216dp"
         android:layout_height="25dp"
         android:layout_marginStart="32dp"
