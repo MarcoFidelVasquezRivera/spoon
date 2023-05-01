@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
                     finish()
                 }
                 0->{
-                    Toast.makeText(this, "Hubo un error", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "No se ha podido iniciar sesión", Toast.LENGTH_SHORT).show()
                 }
             }
         }

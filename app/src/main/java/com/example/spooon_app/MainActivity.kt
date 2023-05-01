@@ -42,35 +42,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        if(Firebase.auth.currentUser==null){
-            startActivity(
-                Intent(this, LoginActivity::class.java)
-            )
-            finish()
-        }else{
-            lifecycleScope.launch(Dispatchers.Main) {
-                try {
-                    val res = Firebase.firestore.collection("users").document(
-                        Firebase.auth.currentUser!!.uid
-                    ).get().await()
-                    val me = res.toObject(User::class.java)
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@MainActivity,
-                            me?.name,
-                            Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                }catch (e:Exception){
-                    Toast.makeText(this@MainActivity, "No tiene sesion iniciada", Toast.LENGTH_SHORT).show()
-                    startActivity(
-                        Intent(this@MainActivity, LoginActivity::class.java)
-                    )
-                    finish()
-                }
-
-            }
-        }
-
     }
 
     fun showFragment(fragment: Fragment){
