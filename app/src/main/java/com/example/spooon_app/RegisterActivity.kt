@@ -45,6 +45,13 @@ class RegisterActivity : AppCompatActivity(){
             )
 
         }
+
+        binding.backtologinBtn.setOnClickListener {
+            startActivity(
+                Intent(this, LoginActivity::class.java)
+            )
+            finish()
+        }
     }
 
 }
