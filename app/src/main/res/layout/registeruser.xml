@@ -31,8 +31,9 @@
         android:inputType="textPersonName"
         android:textColorHint="#6A000000"
         app:layout_constraintBottom_toTopOf="@+id/emailET"
-        app:layout_constraintTop_toBottomOf="@+id/textView13"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
 
     <EditText
         android:id="@+id/checkpasswordET"
@@ -44,8 +45,9 @@
         android:hint="Confirmar contraseña"
         android:inputType="textPersonName"
         android:textColorHint="#6A000000"
-        app:layout_constraintTop_toBottomOf="@+id/createpasswordET"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/createpasswordET" />
 
     <EditText
         android:id="@+id/emailET"
@@ -58,8 +60,9 @@
         android:inputType="textPersonName"
         android:textColorHint="#6A000000"
         app:layout_constraintBottom_toTopOf="@+id/createpasswordET"
-        app:layout_constraintTop_toBottomOf="@+id/usernameET"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameET" />
 
     <EditText
         android:id="@+id/createpasswordET"
@@ -72,8 +75,9 @@
         android:inputType="textPersonName"
         android:textColorHint="#6A000000"
         app:layout_constraintBottom_toTopOf="@+id/checkpasswordET"
-        app:layout_constraintTop_toBottomOf="@+id/emailET"
-        tools:layout_editor_absoluteX="70dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailET" />
 
     <Button
         android:id="@+id/registeruserBtn"
