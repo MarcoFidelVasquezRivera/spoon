@@ -7,5 +7,7 @@ data class Recipe(
     var rating:Float,
     var ingredients:List<String>,
     var steps:List<String>,
-    var creator:String //cambiar a una referencia a la clase de ususrio
+    var userId:String,
+    var comments:List<Comment> = arrayListOf(),
+    var tags:List<Tag> = arrayListOf()
 )
