@@ -5,7 +5,10 @@ import java.io.Serializable
 data class User(
     var id: String? = "",
     var name:String = "",
-    var email:String = ""
+    var email:String = "",
+    var score: Double = 0.0,
+    var followers:Int = 0,
+    var description:String = "mi descripción"
 ) : Serializable{
     override fun toString():String{
         return name

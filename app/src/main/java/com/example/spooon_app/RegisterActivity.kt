@@ -39,7 +39,7 @@ class RegisterActivity : AppCompatActivity(){
                 User(
                     null,
                     binding.usernameET.text.toString(),
-                    binding.emailET.text.toString()
+                    binding.emailET.text.toString(),
                 ),
                 binding.createpasswordET.text.toString()
             )
