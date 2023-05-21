@@ -3,7 +3,7 @@ package com.example.spooon_app.model
 import java.io.Serializable
 
 data class User(
-    var user_id: String? = "",
+    var id: String? = "",
     var name:String = "",
     var email:String = "",
     var score: Double = 0.0,

@@ -12,9 +12,9 @@ import com.example.spooon_app.viewholder.TagViewHolder
 class TagAdapter : Adapter<TagViewHolder>(){
 
     var tags: ArrayList<Tag> = arrayListOf(
-        Tag("Colombiana"),
-        Tag("Carne"),
-        Tag("Facil")
+        Tag("1","Colombiana"),
+        Tag("2","Carne"),
+        Tag("3","Facil")
 
     )
     var tagsLiveData = MutableLiveData(tags)
