@@ -3,6 +3,7 @@ package com.example.spooon_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import com.example.spooon_app.databinding.ActivityCreateRecipeBinding
@@ -25,7 +26,7 @@ class CreateRecipeActivity : AppCompatActivity() {
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         binding.createRecipeBtn.setOnClickListener {
             var title = binding.tittleET.text.toString()
-            var difficulty = binding.difficultyET.text.toString()
+            var difficulty = binding.difficultySpinner.selectedItem.toString();
             var ingredients = binding.ingredientsET.text.toString()
 
             val intent = Intent(this, CreateRecipeStepsActivity::class.java)
