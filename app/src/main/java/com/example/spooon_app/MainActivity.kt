@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.spooon_app.databinding.ActivityMainBinding
@@ -30,6 +32,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        binding.notificationBtn.setOnClickListener {
+            if(!binding.notificationRV.isVisible){
+                binding.notificationRV.visibility = View.VISIBLE;
+                binding.notificationRV.bringToFront();
+            }else{
+                binding.notificationRV.visibility = View.INVISIBLE;
+            }
+        }
+
 
         showFragment(recipes)
 

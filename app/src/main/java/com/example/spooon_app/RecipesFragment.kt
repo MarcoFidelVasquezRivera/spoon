@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.spooon_app.adapter.RecipeAdapter
@@ -29,6 +30,15 @@ class RecipesFragment :Fragment(){
         binding.recipesTypeListRecyclerview.adapter = tagAdapter
         binding.recipesTypeListRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
         binding.recipesTypeListRecyclerview.setHasFixedSize(true)
+
+        binding.menuBtn.setOnClickListener {
+            if(!binding.tagRV.isVisible){
+                binding.tagRV.visibility = View.VISIBLE;
+                binding.tagRV.bringToFront();
+            }else{
+                binding.tagRV.visibility = View.INVISIBLE;
+            }
+        }
 
         return binding.root
     }
