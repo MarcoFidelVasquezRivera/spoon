@@ -8,9 +8,7 @@ data class User(
     var email:String = "",
     var score: Double = 0.0,
     var followers:Int = 0,
-    var description:String = "mi descripción",
-    var recipes:List<Recipe> = arrayListOf(),
-    var notifications:List<Notification> = arrayListOf()
+    var description:String = "mi descripción"
 ) : Serializable{
     override fun toString():String{
         return name

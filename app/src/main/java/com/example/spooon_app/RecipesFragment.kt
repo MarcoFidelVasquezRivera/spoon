@@ -40,6 +40,7 @@ class RecipesFragment :Fragment(){
             }
         }
 
+        adapter.loadRecipes()
         return binding.root
     }
 

@@ -1,6 +1,7 @@
 package com.example.spooon_app.model
 
 data class Recipe(
+    var id:String = "",
     var name:String = "",
     var dificulty:String = "",
     var image:Int = 0,
