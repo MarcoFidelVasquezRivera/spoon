@@ -41,11 +41,25 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
         var me: User? = null
         var recipes:ArrayList<Recipe> = arrayListOf()
 
+        var userName = ""
+        lifecycleScope.launch(Dispatchers.Main) {
+            val result = Firebase.firestore.collection("users").document(
+                Firebase.auth.currentUser!!.uid
+            ).get().await()
+
+           var userobj = result.toObject(User::class.java)
+           userName = userobj?.name.toString()
+        }
+
+
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         binding.recipeDoneBtn.setOnClickListener {
             var steps = binding.stepsET.text.toString()
             var userId = Firebase.auth.currentUser!!.uid
-            var recipe = Recipe(title+userId,title,difficulty,0,0.0,ingredients,steps,userId, tags=tagsArr)
+
+
+
+            var recipe = Recipe(title+userId,title,difficulty,0,0.0,ingredients,steps,userId, userName,tags=tagsArr)
             recipes.add(recipe)
 
             lifecycleScope.launch(Dispatchers.Main) {

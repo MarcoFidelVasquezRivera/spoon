@@ -19,7 +19,7 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
     private val db = Firebase.firestore
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecipeViewHolder {
-        println("onCreateViewHolder")
+
         val layoutInflater:LayoutInflater = LayoutInflater.from(parent.context)
         val view: View = layoutInflater.inflate(R.layout.recipe, parent, false)
         val holder = RecipeViewHolder(view)
@@ -27,10 +27,10 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: RecipeViewHolder, position: Int) {
-        println("onBindViewHolder")
+
         var recipe = recipes[position]
         holder.name.text = recipe.name
-        holder.autor.text = recipe.userId
+        holder.autor.text = recipe.userName
         holder.rating.text = recipe.rating.toString()
         holder.dificulty.text = recipe.dificulty
         //to do for diego
