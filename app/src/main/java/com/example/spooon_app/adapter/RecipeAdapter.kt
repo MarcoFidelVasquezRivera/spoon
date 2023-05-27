@@ -64,7 +64,6 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
 
     fun loadMyRecipes(){
         var userid = Firebase.auth.currentUser!!.uid
-
         db.collection("recipes").whereEqualTo("userId", userid).get().addOnSuccessListener {
                 documents -> for (document in documents){
             recipes.add(document.toObject(Recipe::class.java))
@@ -77,4 +76,26 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
 
 
     }
+
+    fun loadCustomRecipes(userTags : ArrayList<String>){
+        recipes.clear()
+        for (tag in userTags) {
+            db.collection("recipes").whereArrayContains("tags", tag).get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        var recipe = document.toObject(Recipe::class.java)
+                        if(!recipes.contains(recipe)){
+                            recipes.add(recipe)
+
+                        }
+                    }
+
+                    notifyDataSetChanged()
+                }.addOnFailureListener { exception ->
+                Log.w("error", "Error getting documents: ", exception)
+            }
+        }
+
+    }
+
 }

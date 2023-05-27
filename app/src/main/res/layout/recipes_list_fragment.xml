@@ -5,21 +5,67 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/tagRV"
-        android:layout_width="239dp"
-        android:layout_height="665dp"
-        android:layout_marginTop="80dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tagsConstraintLayout"
+        android:layout_width="237dp"
+        android:layout_height="702dp"
+        android:layout_marginTop="100dp"
         android:background="#000000"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout" />
+        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
+
+        <CheckBox
+            android:id="@+id/mediterraneaCB"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:text="Mediterranea"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <CheckBox
+            android:id="@+id/italianaCB"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:text="Italiana"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mediterraneaCB" />
+
+        <CheckBox
+            android:id="@+id/espanolaCB"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:text="Española"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/italianaCB" />
+
+        <CheckBox
+            android:id="@+id/colombianaCB"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:text="Colombiana"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/espanolaCB" />
+
+        <CheckBox
+            android:id="@+id/vegetarianaCB"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:text="Vegetariana"
+            android:textColor="#FFFFFF"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/colombianaCB" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -112,33 +158,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
-        android:layout_width="409dp"
-        android:layout_height="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recipes_type_list_recyclerview"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:paddingStart="40dp"
-            android:scrollbars="horizontal"
-            android:verticalScrollbarPosition="left"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="614dp"
+        android:layout_width="410dp"
+        android:layout_height="653dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintStart_toStartOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recipes_list_recyclerview"

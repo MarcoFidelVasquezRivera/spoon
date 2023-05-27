@@ -13,7 +13,7 @@ import com.example.spooon_app.databinding.RecipesListFragmentBinding
 
 class RecipesFragment :Fragment(){
     private lateinit var adapter:RecipeAdapter
-    private lateinit var tagAdapter: TagAdapter
+    private var tags:ArrayList<String> = arrayListOf()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,21 +26,21 @@ class RecipesFragment :Fragment(){
         binding.recipesListRecyclerview.layoutManager = LinearLayoutManager(activity)
         binding.recipesListRecyclerview.setHasFixedSize(true)
 
-        tagAdapter = TagAdapter()
-        binding.recipesTypeListRecyclerview.adapter = tagAdapter
-        binding.recipesTypeListRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.recipesTypeListRecyclerview.setHasFixedSize(true)
-
         binding.menuBtn.setOnClickListener {
-            if(!binding.tagRV.isVisible){
-                binding.tagRV.visibility = View.VISIBLE;
-                binding.tagRV.bringToFront();
+            if(!binding.tagsConstraintLayout.isVisible){
+                binding.tagsConstraintLayout.visibility = View.VISIBLE;
+                binding.tagsConstraintLayout.bringToFront();
             }else{
-                binding.tagRV.visibility = View.INVISIBLE;
+                checkCheckboxes(binding)
+                adapter.loadCustomRecipes(tags)
+                binding.tagsConstraintLayout.visibility = View.INVISIBLE;
             }
         }
 
         adapter.loadRecipes()
+
+
+
         return binding.root
     }
 
@@ -49,5 +49,24 @@ class RecipesFragment :Fragment(){
             return RecipesFragment()
         }
     }
+
+    fun checkCheckboxes(binding: RecipesListFragmentBinding){
+        if (binding.mediterraneaCB.isChecked){
+            tags.add(binding.mediterraneaCB.text.toString())
+        }
+        if (binding.italianaCB.isChecked){
+            tags.add(binding.italianaCB.text.toString())
+        }
+        if (binding.espanolaCB.isChecked){
+            tags.add(binding.espanolaCB.text.toString())
+        }
+        if (binding.colombianaCB.isChecked){
+            tags.add(binding.colombianaCB.text.toString())
+        }
+        if (binding.vegetarianaCB.isChecked){
+            tags.add(binding.vegetarianaCB.text.toString())
+        }
+    }
+
 
 }
