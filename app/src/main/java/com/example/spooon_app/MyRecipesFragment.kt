@@ -39,6 +39,7 @@ class MyRecipesFragment : Fragment() {
             launcher.launch(intent)
         }
 
+        adapter.loadMyRecipes()
         return binding.root
     }
 

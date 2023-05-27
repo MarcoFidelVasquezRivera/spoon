@@ -10,6 +10,7 @@ import com.example.spooon_app.R
 import com.example.spooon_app.RecipeViewActivity
 import com.example.spooon_app.model.Recipe
 import com.example.spooon_app.viewholder.RecipeViewHolder
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -49,6 +50,22 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
     fun loadRecipes(){
 
         db.collection("recipes").get().addOnSuccessListener {
+                documents -> for (document in documents){
+            recipes.add(document.toObject(Recipe::class.java))
+            notifyDataSetChanged()
+        }
+
+        }.addOnFailureListener{
+                exception -> Log.w("error", "Error getting documents: ", exception)
+        }
+
+
+    }
+
+    fun loadMyRecipes(){
+        var userid = Firebase.auth.currentUser!!.uid
+
+        db.collection("recipes").whereEqualTo("userId", userid).get().addOnSuccessListener {
                 documents -> for (document in documents){
             recipes.add(document.toObject(Recipe::class.java))
             notifyDataSetChanged()
