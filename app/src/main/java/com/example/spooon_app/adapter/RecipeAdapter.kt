@@ -37,8 +37,10 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         //to do for diego
 
         holder.recipeBtn.setOnClickListener {
+            var intent = Intent(holder.itemView.context,RecipeViewActivity::class.java)
+            intent.putExtra("id",recipe.id)
             holder.itemView.context.startActivity(
-                Intent(holder.itemView.context,RecipeViewActivity::class.java)
+                intent
             )
         }
     }
