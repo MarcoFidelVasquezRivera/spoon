@@ -15,7 +15,6 @@ import com.example.spooon_app.databinding.MyRecipesFragmentBinding
 
 class MyRecipesFragment : Fragment() {
     private lateinit var adapter:RecipeAdapter
-    private lateinit var tagAdapter:TagAdapter
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,11 +26,6 @@ class MyRecipesFragment : Fragment() {
         binding.myrecipeRV.adapter = adapter
         binding.myrecipeRV.layoutManager = LinearLayoutManager(activity)
         binding.myrecipeRV.setHasFixedSize(true)
-
-        tagAdapter = TagAdapter()
-        binding.recipesTypeListRecyclerview.adapter = tagAdapter
-        binding.recipesTypeListRecyclerview.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-        binding.recipesTypeListRecyclerview.setHasFixedSize(true)
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         binding.createRecipeBtn.setOnClickListener {
