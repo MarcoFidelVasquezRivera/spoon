@@ -36,7 +36,12 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
         var difficulty = intent.getStringExtra("difficulty").toString()
         var ingredients = intent.getStringExtra("ingredients").toString()
         var tags = intent.getStringExtra("tags")
-        var tagsArr:ArrayList<String> = tags?.split(",") as ArrayList<String>
+        var tagsArr:ArrayList<String> = arrayListOf()
+        if(tags!!.contains(",")){
+           tagsArr  = tags?.split(",") as ArrayList<String>
+        }else{
+            tagsArr.add(tags)
+        }
 
         var me: User? = null
         var recipes:ArrayList<Recipe> = arrayListOf()
