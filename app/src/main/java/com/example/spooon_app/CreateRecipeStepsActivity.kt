@@ -35,6 +35,8 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
         var title = intent.getStringExtra("title").toString()
         var difficulty = intent.getStringExtra("difficulty").toString()
         var ingredients = intent.getStringExtra("ingredients").toString()
+        var tags = intent.getStringExtra("tags")
+        var tagsArr:ArrayList<String> = tags?.split(",") as ArrayList<String>
 
         var me: User? = null
         var recipes:ArrayList<Recipe> = arrayListOf()
@@ -43,7 +45,7 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
         binding.recipeDoneBtn.setOnClickListener {
             var steps = binding.stepsET.text.toString()
             var userId = Firebase.auth.currentUser!!.uid
-            var recipe = Recipe(title+userId,title,difficulty,0,0.0,ingredients,steps,userId)
+            var recipe = Recipe(title+userId,title,difficulty,0,0.0,ingredients,steps,userId, tags=tagsArr)
             recipes.add(recipe)
 
             lifecycleScope.launch(Dispatchers.Main) {

@@ -29,7 +29,7 @@ class CreateRecipeActivity : AppCompatActivity() {
             var difficulty = binding.difficultySpinner.selectedItem.toString();
             var ingredients = binding.ingredientsET.text.toString()
 
-            val intent = Intent(this, CreateRecipeStepsActivity::class.java)
+            val intent = Intent(this, AddTagsActivity::class.java)
             intent.putExtra("title",title)
             intent.putExtra("difficulty", difficulty)
             intent.putExtra("ingredients",ingredients)

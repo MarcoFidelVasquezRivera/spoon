@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateRecipeStepsActivity">
+
+    <CheckBox
+        android:id="@+id/mediterraneaCheckBox"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Mediterranea"
+        app:layout_constraintBottom_toTopOf="@+id/italianaCheckBox"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <CheckBox
+        android:id="@+id/italianaCheckBox"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:text="Italiana"
+        app:layout_constraintBottom_toTopOf="@+id/espanolaCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/mediterraneaCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/mediterraneaCheckBox" />
+
+    <CheckBox
+        android:id="@+id/espanolaCheckBox"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Española"
+        app:layout_constraintBottom_toTopOf="@+id/colombianaCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/italianaCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/italianaCheckBox" />
+
+    <CheckBox
+        android:id="@+id/colombianaCheckBox"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Colombiana"
+        app:layout_constraintBottom_toTopOf="@+id/vegetarianaCheckBox"
+        app:layout_constraintStart_toStartOf="@+id/espanolaCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/espanolaCheckBox" />
+
+    <CheckBox
+        android:id="@+id/vegetarianaCheckBox"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:text="Vegetariana"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/colombianaCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/colombianaCheckBox" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="60dp"
+        android:text="Añadir tags a la receta"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/goBackBtn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/arrow_back_48px"
+        android:backgroundTint="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addTagsDoneBtn"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@drawable/done_48px"
+            android:backgroundTint="#292929"
+            android:backgroundTintMode="screen">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
