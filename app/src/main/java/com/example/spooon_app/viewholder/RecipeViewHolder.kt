@@ -8,6 +8,7 @@ class RecipeViewHolder(root: View) : ViewHolder(root){
     private val binding = RecipeBinding.bind(root)
 
     //image que aún no la manejo
+    val image = binding.recipeImagePost
     //nombre
     val name = binding.recipeNameTV
     //autor

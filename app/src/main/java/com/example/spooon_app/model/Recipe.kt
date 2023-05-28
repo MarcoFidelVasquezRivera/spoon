@@ -4,7 +4,7 @@ data class Recipe(
     var id:String = "",
     var name:String = "",
     var dificulty:String = "",
-    var image:Int = 0,
+    var image:String = "",
     var rating: Double = 0.0,
     var ingredients:String = "",
     var steps:String = "",

@@ -1,6 +1,7 @@
 package com.example.spooon_app
 
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.result.ActivityResult
@@ -13,9 +14,12 @@ import com.example.spooon_app.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import java.util.*
+import kotlin.collections.ArrayList
 
 class CreateRecipeStepsActivity : AppCompatActivity() {
 
@@ -36,6 +40,13 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
         var difficulty = intent.getStringExtra("difficulty").toString()
         var ingredients = intent.getStringExtra("ingredients").toString()
         var tags = intent.getStringExtra("tags")
+        var image = Uri.parse(intent.getStringExtra("image"))
+
+
+
+        var imageId = UUID.randomUUID().toString()
+
+
         var tagsArr:ArrayList<String> = arrayListOf()
         if(tags!!.contains(",")){
            tagsArr  = tags?.split(",") as ArrayList<String>
@@ -64,10 +75,16 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
 
 
 
-            var recipe = Recipe(title+userId,title,difficulty,0,0.0,ingredients,steps,userId, userName,tags=tagsArr)
+            var recipe = Recipe(title+userId,title,difficulty,imageId,0.0,ingredients,steps,userId, userName,tags=tagsArr)
             recipes.add(recipe)
 
             lifecycleScope.launch(Dispatchers.Main) {
+                Firebase.storage.reference.child(Firebase.auth.uid!!).child(imageId).putFile(image!!)
+
+                recipe.image = Firebase.storage.reference.child(Firebase.auth.uid!!).child(imageId).path
+
+
+
                 Firebase.firestore
                     .collection("recipes")
                     .document(recipe.id)

@@ -1,6 +1,7 @@
 package com.example.spooon_app
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
@@ -29,6 +30,7 @@ class AddTagsActivity : AppCompatActivity() {
         var title = intent.getStringExtra("title").toString()
         var difficulty = intent.getStringExtra("difficulty").toString()
         var ingredients = intent.getStringExtra("ingredients").toString()
+        var image = Uri.parse(intent.getStringExtra("image"))
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         var tags:String = ""
@@ -59,6 +61,7 @@ class AddTagsActivity : AppCompatActivity() {
                 intent.putExtra("difficulty", difficulty)
                 intent.putExtra("ingredients", ingredients)
                 intent.putExtra("tags", tags)
+                intent.putExtra("image", image.toString())
                 launcher.launch(intent)
             }else{
                 Toast.makeText(this, "Debe seleccionar al menos un Tag", Toast.LENGTH_LONG)

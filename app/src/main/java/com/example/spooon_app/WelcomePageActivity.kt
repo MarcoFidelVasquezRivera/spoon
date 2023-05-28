@@ -37,13 +37,7 @@ class WelcomePageActivity : AppCompatActivity() {
                     val res = Firebase.firestore.collection("users").document(
                         Firebase.auth.currentUser!!.uid
                     ).get().await()
-                    val me = res.toObject(User::class.java)
-                    withContext(Dispatchers.Main){
-                        Toast.makeText(this@WelcomePageActivity,
-                            me?.name,
-                            Toast.LENGTH_SHORT)
-                            .show()
-                    }
+                    //Aqui iba lo del Toast
                     startActivity(
                         Intent(this@WelcomePageActivity, MainActivity::class.java)
                     )

@@ -1,11 +1,14 @@
 package com.example.spooon_app.adapter
 
 import android.content.Intent
+import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView.Adapter
+import com.bumptech.glide.Glide
 import com.example.spooon_app.R
 import com.example.spooon_app.RecipeViewActivity
 import com.example.spooon_app.model.Recipe
@@ -13,6 +16,8 @@ import com.example.spooon_app.viewholder.RecipeViewHolder
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
+import kotlinx.coroutines.tasks.await
 
 class RecipeAdapter : Adapter<RecipeViewHolder>() {
 
@@ -31,6 +36,14 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
 
         var recipe = recipes[position]
         holder.name.text = recipe.name
+
+        println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC" + Firebase.storage.reference.child(recipe.image))
+
+        Firebase.storage.reference.child(recipe.image).downloadUrl.addOnSuccessListener {
+                var imageURL = it.toString()
+                Glide.with(holder.image.context).load(imageURL).into(holder.image);
+            }
+
         holder.autor.text = recipe.userName
         holder.rating.text = recipe.rating.toString()
         holder.dificulty.text = recipe.dificulty
@@ -97,5 +110,4 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         }
 
     }
-
 }
