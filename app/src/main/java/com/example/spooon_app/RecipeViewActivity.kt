@@ -53,6 +53,7 @@ class RecipeViewActivity : AppCompatActivity() {
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         binding.creatorprofile.setOnClickListener {
             val intent = Intent(this, ProfileCreatorActivity::class.java)
+            intent.putExtra("userID",recipe!!.userId)
             launcher.launch(intent)
         }
     }
