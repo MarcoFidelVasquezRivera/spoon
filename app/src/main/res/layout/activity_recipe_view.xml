@@ -109,7 +109,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/stepsTV"
             android:layout_width="384dp"
             android:layout_height="287dp"
             android:layout_marginStart="16dp"

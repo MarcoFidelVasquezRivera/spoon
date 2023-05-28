@@ -25,6 +25,7 @@ class ProfileFragment : Fragment() {
     ): ScrollView {
         val binding:ProfileFragmentBinding = ProfileFragmentBinding.inflate(inflater, container, false)
 
+
         var me: User? = null
         lifecycleScope.launch(Dispatchers.Main) {
             val res = Firebase.firestore.collection("users").document(
