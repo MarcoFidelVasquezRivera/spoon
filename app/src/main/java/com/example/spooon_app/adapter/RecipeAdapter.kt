@@ -42,7 +42,7 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         Firebase.storage.reference.child(recipe.image).downloadUrl.addOnSuccessListener {
                 var imageURL = it.toString()
                 Glide.with(holder.image.context).load(imageURL).into(holder.image);
-            }
+        }
 
         holder.autor.text = recipe.userName
         holder.rating.text = recipe.rating.toString()
@@ -94,12 +94,33 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
 
     fun loadCustomRecipes(userTags : ArrayList<String>){
         recipes.clear()
-        for (tag in userTags) {
-            db.collection("recipes").whereArrayContains("tags", tag).get()
+
+        if(userTags.isNotEmpty()){
+            for (tag in userTags) {
+                db.collection("recipes").whereArrayContains("tags", tag).get()
+                    .addOnSuccessListener { documents ->
+                        for (document in documents) {
+                            var recipe = document.toObject(Recipe::class.java)
+                            if(!recipes.contains(recipe)){
+                                recipes.add(recipe)
+
+                            }
+                        }
+
+                        notifyDataSetChanged()
+                    }.addOnFailureListener { exception ->
+                    Log.w("error", "Error getting documents: ", exception)
+                }
+            }
+        }else{
+            println(recipes.size)
+            db.collection("recipes").get()
                 .addOnSuccessListener { documents ->
                     for (document in documents) {
                         var recipe = document.toObject(Recipe::class.java)
+                        println(recipes.size)
                         if(!recipes.contains(recipe)){
+                            println("ENTREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE al loop :)")
                             recipes.add(recipe)
 
                         }
@@ -107,8 +128,8 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
 
                     notifyDataSetChanged()
                 }.addOnFailureListener { exception ->
-                Log.w("error", "Error getting documents: ", exception)
-            }
+                    Log.w("error", "Error getting documents: ", exception)
+                }
         }
 
     }

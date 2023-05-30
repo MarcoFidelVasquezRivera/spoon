@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import com.example.spooon_app.databinding.ActivityCreateRecipeBinding
 import com.example.spooon_app.databinding.ActivityRecipeViewBinding
 import com.example.spooon_app.model.Recipe
@@ -14,6 +15,7 @@ import com.example.spooon_app.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
@@ -41,6 +43,12 @@ class RecipeViewActivity : AppCompatActivity() {
             ).get().await()
             recipe = res.toObject(Recipe::class.java)!!
             binding.recipeViewChefNameTxt.text = recipe!!.userName
+
+            Firebase.storage.reference.child(recipe!!.image).downloadUrl.addOnSuccessListener {
+                var imageURL = it.toString()
+                Glide.with(applicationContext).load(imageURL).into(binding.recipeViewImage);
+            }
+
             binding.recipeViewNameTxt.text = recipe!!.name
             binding.recipeViewLevelTxt.text = recipe!!.dificulty
             var text = recipe!!.ingredients + "\n"

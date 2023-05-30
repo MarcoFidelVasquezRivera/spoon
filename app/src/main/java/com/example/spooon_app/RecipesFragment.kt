@@ -50,7 +50,8 @@ class RecipesFragment :Fragment(){
         }
     }
 
-    fun checkCheckboxes(binding: RecipesListFragmentBinding){
+    private fun checkCheckboxes(binding: RecipesListFragmentBinding){
+        tags.clear()
         if (binding.mediterraneaCB.isChecked){
             tags.add(binding.mediterraneaCB.text.toString())
         }

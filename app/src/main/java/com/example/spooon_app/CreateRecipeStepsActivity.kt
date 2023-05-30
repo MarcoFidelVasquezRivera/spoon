@@ -91,8 +91,9 @@ class CreateRecipeStepsActivity : AppCompatActivity() {
                     .set(recipe).await()
             }
 
-            val intent = Intent(this, RecipeViewActivity::class.java)
-            intent.putExtra("id",recipe.id)
+            val intent = Intent(this, MainActivity::class.java)
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+            //intent.putExtra("id",recipe.id)
             launcher.launch(intent)
             finish()
         }
