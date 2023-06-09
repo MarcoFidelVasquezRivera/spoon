@@ -4,5 +4,6 @@ data class Comment(
     var commentId: String="",
     var recipeId:String="",
     var message: String="",
-    var authorId:String=""
+    var authorId:String="",
+    var authorName:String=""
 )

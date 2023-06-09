@@ -31,7 +31,7 @@ class CommentAdapter : Adapter<CommentViewHolder>() {
 
     override fun onBindViewHolder(holder: CommentViewHolder, position: Int) {
 
-        holder.usernameComment.text = comments[position].authorId
+        holder.usernameComment.text = comments[position].authorName
         holder.comment.text = comments[position].message
         //holder.image
     }
@@ -41,8 +41,6 @@ class CommentAdapter : Adapter<CommentViewHolder>() {
     }
 
     fun loadComments(recipeId:String) {
-        print(recipeId + "ASDASLFNJDSOWFBUJHIDSAHRIUAUOPHFDUPOSAHPFUOS")
-
         db.collection("comments").whereEqualTo("recipeId", recipeId).get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {

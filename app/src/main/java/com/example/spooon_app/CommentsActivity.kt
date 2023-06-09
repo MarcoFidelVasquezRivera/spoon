@@ -11,6 +11,7 @@ import com.example.spooon_app.adapter.CommentAdapter
 import com.example.spooon_app.databinding.ActivityRecipeViewBinding
 import com.example.spooon_app.databinding.CommentsFragmentBinding
 import com.example.spooon_app.model.Comment
+import com.example.spooon_app.model.User
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -41,12 +42,20 @@ class CommentsActivity : AppCompatActivity() {
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
         var recipeId = intent.extras?.getString("recipeID").toString()
-        print(recipeId + "REAOFHDUESAHODSA")
+
         binding.sendCommentBtn.setOnClickListener {
             var commentStr = binding.commentInput.text.toString()
             var commentID = java.util.UUID.randomUUID().toString()
-            var comment: Comment = Comment(commentID,recipeId,commentStr, Firebase.auth.currentUser!!.uid)
+            var usrObj: User? = null
+
             lifecycleScope.launch(Dispatchers.Main){
+                val usr =  Firebase.firestore.collection("users").document(Firebase.auth.currentUser!!.uid)
+                    .get().await()
+
+                usrObj = usr.toObject(User::class.java)!!
+
+                var comment: Comment = Comment(commentID,recipeId,commentStr, Firebase.auth.currentUser!!.uid, usrObj!!.name)
+
                 Firebase.firestore
                     .collection("comments")
                     .document(comment.commentId)
@@ -59,9 +68,7 @@ class CommentsActivity : AppCompatActivity() {
             finish()
         }
 
-        print(recipeId + "ENTRE AL ADAPTER")
         adapter.loadComments(recipeId)
-        print("SALI DEL ADAPTER AAAAAAAAAAAAAAAAAAAAAAA")
 
     }
 
