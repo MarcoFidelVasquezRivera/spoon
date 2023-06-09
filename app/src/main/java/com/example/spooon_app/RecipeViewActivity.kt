@@ -67,6 +67,12 @@ class RecipeViewActivity : AppCompatActivity() {
             launcher.launch(intent)
         }
 
+        binding.recipeViewCommentBtn.setOnClickListener {
+            val intent = Intent(this, CommentsActivity::class.java)
+            intent.putExtra("recipeID",recipe!!.id)
+            launcher.launch(intent)
+        }
+
 
         //binding.recipeViewCommentBtn.setOnClickListener {
         //  if(!binding.constraintLayout5){

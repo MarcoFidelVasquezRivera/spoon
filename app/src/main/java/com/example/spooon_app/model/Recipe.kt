@@ -10,6 +10,5 @@ data class Recipe(
     var steps:String = "",
     var userId:String = "",
     var userName:String = "",
-    var comments:List<Comment> = arrayListOf(),
     var tags:ArrayList<String> = arrayListOf()
 )

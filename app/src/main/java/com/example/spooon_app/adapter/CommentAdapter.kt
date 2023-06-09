@@ -33,7 +33,6 @@ class CommentAdapter : Adapter<CommentViewHolder>() {
         holder.usernameComment.text = comments[position].authorId
         holder.comment.text = comments[position].message
         //holder.image
-        holder.date.text = comments[position].date
 
 
 

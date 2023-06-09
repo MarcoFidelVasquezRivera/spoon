@@ -64,7 +64,7 @@
                     android:layout_marginEnd="8dp"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="Name"
+                    android:text="Mensaje"
                     app:layout_constraintEnd_toStartOf="@+id/sendCommentBtn"
                     app:layout_constraintStart_toStartOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
