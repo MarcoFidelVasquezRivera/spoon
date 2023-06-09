@@ -3,9 +3,11 @@ package com.example.spooon_app
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.spooon_app.databinding.ActivityCreateRecipeBinding
@@ -64,6 +66,18 @@ class RecipeViewActivity : AppCompatActivity() {
             intent.putExtra("userID",recipe!!.userId)
             launcher.launch(intent)
         }
+
+        binding.recipeViewCommentBtn.setOnClickListener {
+            if(!binding.constraintLayout5){
+                binding.tagsConstraintLayout.visibility = View.VISIBLE;
+                binding.tagsConstraintLayout.bringToFront();
+            }else{
+                checkCheckboxes(binding)
+                adapter.loadCustomRecipes(tags)
+                binding.tagsConstraintLayout.visibility = View.INVISIBLE;
+            }
+        }
+
     }
 
     fun onResult(result:ActivityResult){

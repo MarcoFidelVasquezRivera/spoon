@@ -27,7 +27,7 @@
         <TextView
             android:id="@+id/usernameComment"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:text="Username"
             app:layout_constraintStart_toEndOf="@+id/userImageComment"
@@ -46,5 +46,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/userImageComment"
             app:layout_constraintTop_toBottomOf="@+id/usernameComment" />
+
+        <TextView
+            android:id="@+id/dateComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01/02/2023"
+            app:layout_constraintEnd_toEndOf="@+id/comment"
+            app:layout_constraintTop_toTopOf="@+id/usernameComment" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
