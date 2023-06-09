@@ -8,8 +8,8 @@ class CommentViewHolder(root: View) : ViewHolder(root) {
 
     private val binding = CommentBinding.bind(root)
 
-    val image = binding.userImageComment
+   // val image = binding.userImageComment
     val usernameComment = binding.usernameComment
-    val  date = binding.dateComment
+    //val  date = binding.dateComment
     val comment = binding.comment
 }

@@ -6,6 +6,8 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.spooon_app.adapter.CommentAdapter
 import com.example.spooon_app.databinding.ActivityRecipeViewBinding
 import com.example.spooon_app.databinding.CommentsFragmentBinding
 import com.example.spooon_app.model.Comment
@@ -18,6 +20,7 @@ import kotlinx.coroutines.tasks.await
 
 class CommentsActivity : AppCompatActivity() {
 
+
     private val binding: CommentsFragmentBinding by lazy{
         CommentsFragmentBinding.inflate(layoutInflater)
     }
@@ -26,16 +29,21 @@ class CommentsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        var adapter = CommentAdapter()
+        binding.commentList.adapter = adapter
+        binding.commentList.layoutManager = LinearLayoutManager(this)
+        binding.commentList.setHasFixedSize(true)
+
         binding.commentsBackBtn.setOnClickListener {
             setResult(RESULT_OK)
             finish()
         }
 
         val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult(),::onResult)
-
+        var recipeId = intent.extras?.getString("recipeID").toString()
+        print(recipeId + "REAOFHDUESAHODSA")
         binding.sendCommentBtn.setOnClickListener {
             var commentStr = binding.commentInput.text.toString()
-            var recipeId = intent.extras?.getString("recipeID").toString()
             var commentID = java.util.UUID.randomUUID().toString()
             var comment: Comment = Comment(commentID,recipeId,commentStr, Firebase.auth.currentUser!!.uid)
             lifecycleScope.launch(Dispatchers.Main){
@@ -50,6 +58,10 @@ class CommentsActivity : AppCompatActivity() {
             launcher.launch(intent)
             finish()
         }
+
+        print(recipeId + "ENTRE AL ADAPTER")
+        adapter.loadComments(recipeId)
+        print("SALI DEL ADAPTER AAAAAAAAAAAAAAAAAAAAAAA")
 
     }
 

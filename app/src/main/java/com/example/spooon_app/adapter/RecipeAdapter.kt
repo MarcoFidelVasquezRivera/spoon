@@ -37,8 +37,6 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
         var recipe = recipes[position]
         holder.name.text = recipe.name
 
-        println("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC" + Firebase.storage.reference.child(recipe.image))
-
         Firebase.storage.reference.child(recipe.image).downloadUrl.addOnSuccessListener {
                 var imageURL = it.toString()
                 Glide.with(holder.image.context).load(imageURL).into(holder.image);
@@ -120,7 +118,6 @@ class RecipeAdapter : Adapter<RecipeViewHolder>() {
                         var recipe = document.toObject(Recipe::class.java)
                         println(recipes.size)
                         if(!recipes.contains(recipe)){
-                            println("ENTREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE al loop :)")
                             recipes.add(recipe)
 
                         }
