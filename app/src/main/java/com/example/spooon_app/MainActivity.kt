@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.spooon_app.adapter.NotificationAdapter
 import com.example.spooon_app.databinding.ActivityMainBinding
 import com.example.spooon_app.model.User
 import com.google.firebase.auth.ktx.auth
@@ -28,10 +30,16 @@ class MainActivity : AppCompatActivity() {
     private val recipes = RecipesFragment.newInstance()
     private val myRecipes = MyRecipesFragment.newInstance()
     private val profile = ProfileFragment.newInstance()
+    private lateinit var adapter: NotificationAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        adapter = NotificationAdapter()
+        binding.notificationRV.adapter = adapter
+        binding.notificationRV.layoutManager = LinearLayoutManager(this)
+        binding.notificationRV.setHasFixedSize(true)
+
         binding.notificationBtn.setOnClickListener {
             if(!binding.notificationRV.isVisible){
                 binding.notificationRV.visibility = View.VISIBLE;
