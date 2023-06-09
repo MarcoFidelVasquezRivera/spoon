@@ -67,16 +67,17 @@ class RecipeViewActivity : AppCompatActivity() {
             launcher.launch(intent)
         }
 
-        binding.recipeViewCommentBtn.setOnClickListener {
-            if(!binding.constraintLayout5){
-                binding.tagsConstraintLayout.visibility = View.VISIBLE;
-                binding.tagsConstraintLayout.bringToFront();
-            }else{
-                checkCheckboxes(binding)
-                adapter.loadCustomRecipes(tags)
-                binding.tagsConstraintLayout.visibility = View.INVISIBLE;
-            }
-        }
+
+        //binding.recipeViewCommentBtn.setOnClickListener {
+        //  if(!binding.constraintLayout5){
+        //      binding.tagsConstraintLayout.visibility = View.VISIBLE;
+        //      binding.tagsConstraintLayout.bringToFront();
+        //  }else{
+        //      checkCheckboxes(binding)
+        //      adapter.loadCustomRecipes(tags)
+        //      binding.tagsConstraintLayout.visibility = View.INVISIBLE;
+        //  }
+        //}
 
     }
 
